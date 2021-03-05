@@ -5,6 +5,7 @@
 
 .high-scores a {
     color: indigo;
+    text-decoration: none;
 }
 
 .high-scores a:hover {

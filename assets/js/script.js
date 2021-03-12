@@ -76,6 +76,9 @@ let questions = [
 ];
 
 function showQuestion() {
+    if (questions[i]=== undefined) {
+        endQuiz();
+    } else {
     var quizContainerEl = document.createElement("div");
     quizContainerEl.className = "quiz-container";
     document.getElementById("page").append(quizContainerEl);
@@ -98,8 +101,6 @@ function showQuestion() {
         optionEl.onclick = nextQuestion;
     }
 
-   
-
     function nextQuestion(event) {
         if (event.target.innerText === questions[i].answer) {
             console.log("true");
@@ -115,6 +116,7 @@ function showQuestion() {
         showQuestion();
         console.log(i);
     }
+}
 }
 
 
@@ -138,8 +140,15 @@ function endQuiz() {
     endPageHeader.innerText = "All Done!";
     endPage.append(endPageHeader);
 
-    var endPageText = document.createElement("p");
+    var endPageText = document.createElement("div");
+    endPageText.className = "end-page-text"
     endPageText.innerHTML = "Your score is " + timeLeft;
+    endPage.append(endPageText);
+
+    var submitInitials = document.createElement("form");
+    submitInitials.className = "submit-initials"
+    submitInitials.innerHTML = "<label> Enter initials: </label> <input type='text' id='initials'> <input type='submit' id='submit-button' value='Submit'>";
+    endPage.append(submitInitials);
 
 }
 

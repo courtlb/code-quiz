@@ -4,6 +4,7 @@ var optionList = document.querySelector(".optionList");
 var i = 0;
 var messageText = "";
 var timeLeft = 75;
+var quizContainerEl 
 
 function countdown() {
     var timeInterval = setInterval(function() {
@@ -76,47 +77,47 @@ let questions = [
 ];
 
 function showQuestion() {
-    if (questions[i]=== undefined) {
+    if (questions[i] === undefined) {
         endQuiz();
     } else {
-    var quizContainerEl = document.createElement("div");
-    quizContainerEl.className = "quiz-container";
-    document.getElementById("page").append(quizContainerEl);
+        var quizContainerEl = document.createElement("div");
+        quizContainerEl.className = "quiz-container";
+        document.getElementById("page").append(quizContainerEl);
 
-    var submitMessage = document.createElement("div");
-    submitMessage.className = "submit-message";
-    submitMessage.innerHTML = messageText;
-    quizContainerEl.append(submitMessage);
+        var submitMessage = document.createElement("div");
+        submitMessage.className = "submit-message";
+        submitMessage.innerHTML = messageText;
+        quizContainerEl.append(submitMessage);
 
-    var questionEl = document.createElement("div");
-    questionEl.className = "question-element";
-    questionEl.innerHTML = questions[i].question;
-    quizContainerEl.append(questionEl);
+        var questionEl = document.createElement("div");
+        questionEl.className = "question-element";
+        questionEl.innerHTML = questions[i].question;
+        quizContainerEl.append(questionEl);
 
-    for (j=0; j < questions[i].options.length; j++) {
-        var optionEl = document.createElement("li");
-        optionEl.className = "option-element";
-        optionEl.innerHTML = questions[i].options[j];
-        quizContainerEl.append(optionEl);
-        optionEl.onclick = nextQuestion;
-    }
-
-    function nextQuestion(event) {
-        if (event.target.innerText === questions[i].answer) {
-            console.log("true");
-            messageText = "Correct!";
-        } else {
-            console.log("false");
-            messageText = "Incorrect :( ";
-            timeLeft = timeLeft - 5;
+        for (j=0; j < questions[i].options.length; j++) {
+            var optionEl = document.createElement("li");
+            optionEl.className = "option-element";
+            optionEl.innerHTML = questions[i].options[j];
+            quizContainerEl.append(optionEl);
+            optionEl.onclick = nextQuestion;
         }
 
-        i++;
-        quizContainerEl.remove();
-        showQuestion();
-        console.log(i);
+        function nextQuestion(event) {
+            if (event.target.innerText === questions[i].answer) {
+                console.log("true");
+                messageText = "Correct!";
+            } else {
+                console.log("false");
+                messageText = "Incorrect :( ";
+                timeLeft = timeLeft - 5;
+            }
+
+            i++;
+            quizContainerEl.remove();
+            showQuestion();
+            console.log(i);
+        }
     }
-}
 }
 
 

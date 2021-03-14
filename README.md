@@ -10,7 +10,7 @@ A code quiz to test the user's knowledge of coding fundamentals.
 * CSS
 * Javascript
 
-![Code Quiz](assets/images/codequiz-screenshot.png)
+![Code Quiz](assets/images/codequiz_screenshot.png)
 
 ## Website
 Website Link: https://courtlb.github.io/code-quiz/
